@@ -6,10 +6,10 @@ March 13, 2015
 
 Team Members
 ----------------------------
-Grace Kaldawi gxk093120
-Michael Tucker mxt094000
-Eric Saylor ems130230
-Adil Shaikh aas081000
+Grace Kaldawi gxk093120 <br>
+Michael Tucker mxt094000 <br>
+Eric Saylor ems130230 <br>
+Adil Shaikh aas081000 <br>
 
 Project Title
 ----------------------------
