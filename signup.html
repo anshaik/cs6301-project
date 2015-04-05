@@ -5,47 +5,57 @@
 
     <!-- Custom styles for this template -->
     <link href="css/signup.css" rel="stylesheet">
+	
+	<script src="js/jquery.min.js"></script>
+	
+	<script src="js/signup.js"></script>
 </head>
 <body>
 <div class="container-fluid">
     <section class="container">
-		<div class="container-page">				
+		<div class="container-page">		
 			<div class="col-md-6">
 				<h3 class="dark-grey">Registration</h3>
 				
-				<div class="form-group col-lg-12">
-					<label>Username</label>
-					<input type="" name="" class="form-control" id="" value="">
-				</div>
-				
-				<div class="form-group col-lg-6">
-					<label>Password</label>
-					<input type="password" name="" class="form-control" id="" value="">
-				</div>
-				
-				<div class="form-group col-lg-6">
-					<label>Repeat Password</label>
-					<input type="password" name="" class="form-control" id="" value="">
-				</div>
-								
-				<div class="form-group col-lg-6">
-					<label>Email Address</label>
-					<input type="" name="" class="form-control" id="" value="">
-				</div>
-				
-				<div class="form-group col-lg-6">
-					<label>Repeat Email Address</label>
-					<input type="" name="" class="form-control" id="" value="">
-				</div>			
-				
-				<div class="col-sm-6">
-					<input type="checkbox" class="checkbox" />Sigh up for our newsletter
-				</div>
+					<div class="alert-area">
+						
+					</div>
+					<div class="critical-alert-area">
+					
+					</div>
+					<div class="form-group col-lg-12">
+						<label>Username</label>
+						<input type="" name="username" class="form-control" id="username" value="">
+					</div>
+					
+					<div class="form-group col-lg-6">
+						<label>Password</label>
+						<input type="" name="password" class="form-control" id="password" value="">
+					</div>
+					
+					<div class="form-group col-lg-6">
+						<label>Repeat Password</label>
+						<input type="" name="repeatpassword" class="form-control" id="repeatpassword" value="">
+					</div>
+									
+					<div class="form-group col-lg-6">
+						<label>Email Address</label>
+						<input type="" name="email" class="form-control" id="email" value="">
+					</div>
+					
+					<div class="form-group col-lg-6">
+						<label>Repeat Email Address</label>
+						<input type="" name="repeatemail" class="form-control" id="repeatemail" value="">
+					</div>			
+					
+					<div class="col-sm-6">
+						<input type="checkbox" class="checkbox" />Sign up for our newsletter
+					</div>
 
-				<div class="col-sm-6">
-					<input type="checkbox" class="checkbox" />Send notifications to this email
-				</div>				
-			
+					<div class="col-sm-6">
+						<input type="checkbox" class="checkbox" />Send notifications to this email
+					</div>				
+				
 			</div>
 		
 			<div class="col-md-6">
@@ -64,8 +74,9 @@
 					Acceptance of an order by us is dependent on our suppliers ability to provide the product. (Paragraph 13.5.6)
 				</p>
 				
-				<button type="submit" class="btn btn-primary">Register</button>
+				<button type="submit" class="btn btn-primary" id="register">Register</button>
 			</div>
+			
 		</div>
 	</section>
 </div>
