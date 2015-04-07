@@ -23,20 +23,41 @@ $("document").ready(function(){
 		$.removeCookie("signupsuccess");
 	}
 	
-	//If sign out is clicked, sign out
-	$("#dropdownMenu1 #signedindropdown").click(function(){
-		console.log("Signed out clicked");
+	$("#navbar-signedin").on("click","#signedindropdown",function(){
 		signOut();
 	});
 	
 	
-	//Hide the Signedout navbar when logged in
-	if(localStorage["loggedin"] == 'yes'){
-		$("#navbar-signedout").hide();
-		displaySignedIn();
+	//Sign Up Button Clicked
+	$("#signinbutton").click(function(){
 		
-	} else {
-		$("#navbar-signedin").empty();
-		$("#navbar-signedout").show();
-	}
+		//Cleanup
+		clearErrors();
+		
+		//Check if already Logged in
+		if(localStorage['loggedin'] == 'yes'){
+			printCritical('Your already logged in!','');
+		}else {
+			//Get Email and Password
+			email = $("#email").val();
+			password = $("#password").val();
+
+			//Login
+			login(email,password).done(function(r){
+				if(r == 1){
+					//Success, Set Session variables
+					printSuccess('Login Successful!','');
+					localStorage["loggedin"] = 'yes';
+					localStorage["email"] = email;
+					$("#navbar-signedout").hide();
+					location.reload();
+				} 
+				else {
+					//Fail, print failure
+					printCritical('Username or password is incorrect','');
+				}
+			});
+		
+		}
+	});
 });

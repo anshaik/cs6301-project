@@ -65,13 +65,9 @@ $("document").ready(function(){
 				"failure" : "The User failed to be created!"
 	};
 	
-	//Check if signed in drop down exists
-	if($('#signedindropdown').length){
-		//If sign out is clicked, sign out
-		$("#signedindropdown").click(function(){
-			signOut();
-		});
-	}
+	$("#navbar-signedin").on("click","#signedindropdown",function(){
+		signOut();
+	});
 	
 	
 	//The User has just Registered, and should have a success displaying said success
@@ -82,16 +78,6 @@ $("document").ready(function(){
 	
 		//Clear out the cookie as there's no need to display the success anymore
 		$.removeCookie("signupsuccess");
-	}
-	
-	//Hide the Signedout navbar when logged in
-	if(localStorage["loggedin"] == 'yes'){
-		$("#navbar-signedout").hide();
-		displaySignedIn();
-		
-	} else {
-		$("#navbar-signedin").empty();
-		$("#navbar-signedout").show();
 	}
 	
 	//When the register button is clicked
@@ -160,7 +146,7 @@ $("document").ready(function(){
 							$.cookie("signupsuccess","yes");
 							window.location.href='index.html';
 							localStorage['signupsuccess'] = "yes";
-							
+							location.reload();
 							
 						} else {
 							//Failure

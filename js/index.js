@@ -40,13 +40,9 @@ $("document").ready(function(){
 		$.removeCookie("signupsuccess");
 	}
 	
-	//Check if signed in drop down exists
-	if($('#signedindropdown').length){
-		//If sign out is clicked, sign out
-		$("#signedindropdown").click(function(){
-			signOut();
-		});
-	}
+	$("#navbar-signedin").on("click","#signedindropdown",function(){
+		signOut();
+	});
 	
 	//Hide the Signedout navbar when logged in
 	if(localStorage["loggedin"] == 'yes'){
@@ -98,6 +94,7 @@ $("document").ready(function(){
 					localStorage["loggedin"] = 'yes';
 					localStorage["email"] = email;
 					$("#navbar-signedout").hide();
+					location.reload();
 				} 
 				else {
 					//Fail, print failure
