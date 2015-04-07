@@ -83,34 +83,33 @@ $("document").ready(function(){
 				printCritical(message["empty"],id_name);
 				invalid_regristration = true;
 			}
+			//Break out of for each when one error is met
+			if(invalid_regristration){
+				return false;
+			}
 		});
-		
-		
-		//Check for specific requirements
 		
 		//Check if The Password and Repeat Password are equal
 		if($('#Password').val() != $("[id='Repeat Password']").val()){
 			printCritical(message["repeat"],'Password and Repeat Password');
 			invalid_regristration = true;
 		}
-		
 		//Check if the Email and Repeat Email are equal
-		if($('#Email').val() != $("[id='Repeat Email']").val()){
+		else if($('#Email').val() != $("[id='Repeat Email']").val()){
 			printCritical(message["repeat"],'Email and Repeat Email');
 			invalid_regristration = true;
 		}
-		
 		//Check if Password is more than six characters
-		if($('#Password').val() && $('#Password').val().length < 6){
+		else if($('#Password').val() && $('#Password').val().length < 6){
 			printCritical(message["invalidpassword"],'');
 			invalid_regristration = true;
 		}
-		
-		if(!validEmailAddress($('#Email').val())){
+		//Check if Email is valid
+		else if(!validEmailAddress($('#Email').val())){
 			printCritical(message["invalidemail"],'');
 			invalid_regristration = true;
 		}
-	
+		
 		//Query Database, Check if Email exists
 		if(!invalid_regristration){
 			
@@ -154,7 +153,7 @@ $("document").ready(function(){
 			clearErrors();
 			
 			//Using the id_name grab the alert message from the message array
-			printAlert(message["empty"],id_name);
+			//printAlert(message["empty"],id_name);
 		}
 		
 		//Check if password is less than 6 characters

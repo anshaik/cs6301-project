@@ -43,6 +43,18 @@ $("document").ready(function(){
 	$("#search").click(function(){
 		//Debug check
 		console.log("Search has been pushed");
+		
+		//Check if all the data has been filled out
+		
+		//Extract the data
+		
+		//Make Ajax call to the Sabre API
+		
+		//Grab all the data from the JSON object
+		
+		//Switch Page?, Display the data, display buttons for booking
+		
+		
 	});
 	
 	//Sign Up Button Clicked

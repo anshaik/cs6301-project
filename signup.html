@@ -14,78 +14,113 @@
 	<script src="js/signup.js"></script>
 	
 </head>
-<body>
-<div class="container-fluid">
-    <section class="container">
-		<div class="alert-area"></div>
-		<div class="container-page">
-			
-		</div>
-		<div class="container-page">		
-			<div class="col-md-6">
-				<h3 class="dark-grey">Registration</h3>
-				
-					<div class="form-group col-lg-12">
-						<label>Email</label>
-						<input type="" name="Email" class="form-control" id="Email" value="">
-					</div>
-					
-					<div class="form-group col-lg-12">
-						<label>Repeat Email Address</label>
-						<input type="" name="Repeat Email" class="form-control" id="Repeat Email" value="">
-					</div>	
-					
-					<div class="form-group col-lg-6">
-						<label>Password</label>
-						<input type="password" name="Password" class="form-control" id="Password" value="">
-					</div>
-					
-					<div class="form-group col-lg-6">
-						<label>Repeat Password</label>
-						<input type="password" name="Repeat Password" class="form-control" id="Repeat Password" value="">
-					</div>
-									
-					<div class="form-group col-lg-6">
-						<label>First Name</label>
-						<input type="" name="First Name" class="form-control" id="First Name" value="">
-					</div>
-					
-					<div class="form-group col-lg-6">
-						<label>Last Name</label>
-						<input type="" name="Last Name" class="form-control" id="Last Name" value="">
-					</div>
-					
-					<div class="col-sm-6">
-						<input type="checkbox" class="checkbox" />Sign up for our newsletter
-					</div>
+<body role=""document"">
 
-					<div class="col-sm-6">
-						<input type="checkbox" class="checkbox" />Send notifications to this email
-					</div>				
-				
-			</div>
-		
-			<div class="col-md-6">
-				<h3 class="dark-grey">Terms and Conditions</h3>
-				<p>
-					By clicking on "Register" you agree to The Company's' Terms and Conditions
-				</p>
-				<p>
-					While rare, prices are subject to change based on exchange rate fluctuations - 
-					should such a fluctuation happen, we may request an additional payment. You have the option to request a full refund or to pay the new price. (Paragraph 13.5.8)
-				</p>
-				<p>
-					Should there be an error in the description or pricing of a product, we will provide you with a full refund (Paragraph 13.5.6)
-				</p>
-				<p>
-					Acceptance of an order by us is dependent on our suppliers ability to provide the product. (Paragraph 13.5.6)
-				</p>
-				
-				<button type="submit" class="btn btn-primary" id="register">Register</button>
-			</div>
-			
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+		  <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">MAGE</a>
+		  </div>
+		  <div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="index.html">Home</a></li>
+			  <li><a href="#dashboard">Dashboard</a></li>
+			  <li class="active"><a href="about.html">About</a></li>
+			  <li class="active"><a href="signup.html">Register</a><li>
+			</ul>
+			<form class="navbar-form navbar-right">
+			  <div class="form-group">
+				<input type="text" placeholder="Email" class="">
+			  </div>
+			  <div class="form-group">
+				<input type="password" placeholder="Password" class="">
+			  </div>
+			  <button type="submit" class="btn btn-success">Sign in</button>
+			</form>
+		  </div><!--/.nav-collapse -->
 		</div>
-	</section>
+	</nav>
+  
+	<div class="container theme-showcase" role="main">
+		<div class="container-fluid">
+			<section class="container">
+				<div class="alert-area"></div>
+				<div class="container-page">
+					
+				</div>
+				<div class="container-page">		
+					<div class="col-md-6">
+						<h3 class="dark-grey">Registration</h3>
+						
+							<div class="form-group col-lg-12">
+								<label>Email</label>
+								<input type="" name="Email" class="form-control" id="Email" value="">
+							</div>
+							
+							<div class="form-group col-lg-12">
+								<label>Repeat Email Address</label>
+								<input type="" name="Repeat Email" class="form-control" id="Repeat Email" value="">
+							</div>	
+							
+							<div class="form-group col-lg-6">
+								<label>Password</label>
+								<input type="password" name="Password" class="form-control" id="Password" value="">
+							</div>
+							
+							<div class="form-group col-lg-6">
+								<label>Repeat Password</label>
+								<input type="password" name="Repeat Password" class="form-control" id="Repeat Password" value="">
+							</div>
+											
+							<div class="form-group col-lg-6">
+								<label>First Name</label>
+								<input type="" name="First Name" class="form-control" id="First Name" value="">
+							</div>
+							
+							<div class="form-group col-lg-6">
+								<label>Last Name</label>
+								<input type="" name="Last Name" class="form-control" id="Last Name" value="">
+							</div>
+							
+							<div class="col-sm-6">
+								<input type="checkbox" class="checkbox" />Sign up for our newsletter
+							</div>
+
+							<div class="col-sm-6">
+								<input type="checkbox" class="checkbox" />Send notifications to this email
+							</div>				
+						
+					</div>
+				
+					<div class="col-md-6">
+						<h3 class="dark-grey">Terms and Conditions</h3>
+						<p>
+							By clicking on "Register" you agree to The Company's' Terms and Conditions
+						</p>
+						<p>
+							While rare, prices are subject to change based on exchange rate fluctuations - 
+							should such a fluctuation happen, we may request an additional payment. You have the option to request a full refund or to pay the new price. (Paragraph 13.5.8)
+						</p>
+						<p>
+							Should there be an error in the description or pricing of a product, we will provide you with a full refund (Paragraph 13.5.6)
+						</p>
+						<p>
+							Acceptance of an order by us is dependent on our suppliers ability to provide the product. (Paragraph 13.5.6)
+						</p>
+						
+						<button type="submit" class="btn btn-primary" id="register">Register</button>
+					</div>
+					
+				</div>
+			</section>
+		</div>
+	</div>
 </div>
 </body>
 </html>
