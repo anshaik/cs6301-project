@@ -25,18 +25,7 @@ function login($email,$password){
 		}
 	});
 }
-function displaySignedIn(){
-	email = localStorage["email"];
-	dropDownMeta = "<button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-expanded=\"true\">";
-	dropDownTitle = email;
-	dropDownEndMeta = "<span class=\"caret\"></span></button>";
-	dropDownMenu = "<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu1\">";
-	dropDownItem1 = "<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">Account Details</a></li>";
-	dropDownItem2 = "<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">Sign Out</a></li>";
-	dropDownEndMenu = "</ul>";
-	signedInDropDown = "<div class=\"dropdown\">"+dropDownMeta+dropDownTitle+dropDownEndMeta+dropDownMenu+dropDownItem1+dropDownItem2+dropDownEndMenu+"</div>"; 
-	$("#navbar-signedout").append(signedInDropDown);
-}
+
 
 
 $("document").ready(function(){
@@ -51,10 +40,18 @@ $("document").ready(function(){
 		$.removeCookie("signupsuccess");
 	}
 	
+	//Check if signed in drop down exists
+	if($('#signedindropdown').length){
+		//If sign out is clicked, sign out
+		$("#signedindropdown").click(function(){
+			signOut();
+		});
+	}
+	
 	//Hide the Signedout navbar when logged in
 	if(localStorage["loggedin"] == 'yes'){
 		$("#navbar-signedout").hide();
-		displaySignIn();
+		displaySignedIn();
 		
 	} else {
 		$("#navbar-signedin").empty();

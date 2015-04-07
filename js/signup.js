@@ -65,6 +65,35 @@ $("document").ready(function(){
 				"failure" : "The User failed to be created!"
 	};
 	
+	//Check if signed in drop down exists
+	if($('#signedindropdown').length){
+		//If sign out is clicked, sign out
+		$("#signedindropdown").click(function(){
+			signOut();
+		});
+	}
+	
+	
+	//The User has just Registered, and should have a success displaying said success
+	if($.cookie("signupsuccess") == 'yes'){
+		
+		//Print Success
+		printSuccess('User Registration Successful!','');
+	
+		//Clear out the cookie as there's no need to display the success anymore
+		$.removeCookie("signupsuccess");
+	}
+	
+	//Hide the Signedout navbar when logged in
+	if(localStorage["loggedin"] == 'yes'){
+		$("#navbar-signedout").hide();
+		displaySignedIn();
+		
+	} else {
+		$("#navbar-signedin").empty();
+		$("#navbar-signedout").show();
+	}
+	
 	//When the register button is clicked
 	$("#register").click(function(){
 		invalid_regristration = false;
