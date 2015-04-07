@@ -88,7 +88,7 @@ $("document").ready(function(){
 		clearErrors();
 		
 		//Check if all boxes are non-empty
-		$('.form-control').each(function(i, obj){
+		$('.col-md-6 .form-control').each(function(i, obj){
 			
 			//Get the name of the box
 			id_name = $(this).attr("id");
