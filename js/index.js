@@ -46,10 +46,12 @@ $("document").ready(function(){
 	
 	//Hide the Signedout navbar when logged in
 	if(localStorage["loggedin"] == 'yes'){
+		$("#registerButton").hide();
 		$("#navbar-signedout").hide();
 		displaySignedIn();
 		
 	} else {
+		$("#registerButton").show();
 		$("#navbar-signedin").empty();
 		$("#navbar-signedout").show();
 	}
@@ -90,7 +92,7 @@ $("document").ready(function(){
 			login(email,password).done(function(r){
 				if(r == 1){
 					//Success, Set Session variables
-					printSuccess('Login Successful!','');
+					//printSuccess('Login Successful!','');
 					localStorage["loggedin"] = 'yes';
 					localStorage["email"] = email;
 					$("#navbar-signedout").hide();
