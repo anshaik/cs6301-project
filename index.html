@@ -43,15 +43,7 @@
 					<li class="active"><a href="signup.html">Register</a></li>
 				</ul>
 				
-				<div class = "navbar-form navbar-right">
-					<div class="form-group">
-						<ul class="nav navbar-nav">
-							
-						</ul>
-					</div>
-				</div>
-				
-				<div class="navbar-form navbar-right">
+				<div class="navbar-form navbar-right" id="navbar-signedout">
 					<div class="form-group">
 						<input type="text" placeholder="Email" class="form-control" name="email" id="email">
 					</div>
@@ -59,6 +51,10 @@
 						<input type="password" placeholder="Password" class="form-control" name="password" id="password">
 					</div>
 					<button type="submit" class="btn btn-success" id="signinbutton">Sign in</button>
+				</div>
+				
+				<div class="navbar-form navbar-right" id="navbar-signedin">
+					
 				</div>
 				
 				
@@ -114,5 +110,6 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/index.js"></script>
+	<script src="js/jquery-cookie-master/src/jquery.cookie.js"></script>
 </body>
 </html>

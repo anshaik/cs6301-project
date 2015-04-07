@@ -128,8 +128,10 @@ $("document").ready(function(){
 					createUser(email,password,firstname,lastname).done(function(r){
 						if(r == 1){
 							//Successs
+							$.cookie("signupsuccess","yes");
 							window.location.href='index.html';
 							localStorage['signupsuccess'] = "yes";
+							
 							
 						} else {
 							//Failure
