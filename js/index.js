@@ -12,6 +12,7 @@ function printCritical($alert,$id_name){
 	$(".alert-area").append("<div class=\"alert alert-danger\" role=\"alert\">"+$id_name+" "+$alert+"</div>");
 }
 
+//Login 
 function login($email,$password){
 	//Ajax call to query to Login
 	return $.ajax({
@@ -27,10 +28,24 @@ function login($email,$password){
 
 
 $("document").ready(function(){
+	
+	//The User has just Registered, and should have a success displaying said success
+	if(localStorage['signupsuccess'] == 'yes'){
+		
+		//Print Success
+		printSuccess('User Registration Successful!','');
+	
+		//Clear out the cookie as there's no need to display the success anymore
+		$.removeCookie("signupsuccess");
+	}
+	
+	//Search Button Clicked
 	$("#search").click(function(){
 		//Debug check
 		console.log("Search has been pushed");
 	});
+	
+	//Sign Up Button Clicked
 	$("#signinbutton").click(function(){
 		
 		//Cleanup
@@ -50,6 +65,7 @@ $("document").ready(function(){
 					//Success, Set Session variables
 					printSuccess('Login Successful!','');
 					localStorage['loggedin'] = "yes";
+					localStorage['email'] = email;
 				} 
 				else {
 					//Fail, print failure
@@ -58,6 +74,6 @@ $("document").ready(function(){
 			});
 		
 		}
-		
 	});
+	
 });
