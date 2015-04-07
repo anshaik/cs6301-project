@@ -17,15 +17,18 @@
 	$password = $conn->real_escape_string($_POST['password']);
 	
 	//Create Query
-	$sql = "SELECT email, password FROM user WHERE email = '$email' AND password='$password'";
-	
+	$sql = "SELECT * FROM user WHERE email = '$email' AND password='$password'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_array(MYSQLI_ASSOC);
+	//echo var_dump($row);
 	//Check if query was successful
-	if($conn->query($sql)){
+	if(($row["level"] == 0 || $row["level"] == 1) && $row["level"] != null){
+
 		//Success
-		echo 1;
+		echo $row["level"];
 	} else {
 		//Fail
-		echo 0;
+		echo 'error';
 	}
 	
 	//End connection

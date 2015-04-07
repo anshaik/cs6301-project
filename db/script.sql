@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`purchase_history` (
   `seat` VARCHAR(45) NOT NULL,
   `price` INT(11) NOT NULL,
   `date` DATE NOT NULL,
+  `show` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user_email`, `fnumber`),
   CONSTRAINT `fk_purchase_history_user`
     FOREIGN KEY (`user_email`)

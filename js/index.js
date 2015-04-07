@@ -42,18 +42,29 @@ $("document").ready(function(){
 	
 	$("#navbar-signedin").on("click","#signedindropdown",function(){
 		signOut();
+		window.location.href='index.html';
 	});
 	
 	//Hide the Signedout navbar when logged in
 	if(localStorage["loggedin"] == 'yes'){
+		$("#dashboardButton").show();
 		$("#registerButton").hide();
 		$("#navbar-signedout").hide();
 		displaySignedIn();
 		
 	} else {
+		$("#adminButton").hide();
+		$("#dashboardButton").hide();
 		$("#registerButton").show();
 		$("#navbar-signedin").empty();
 		$("#navbar-signedout").show();
+	}
+
+	if(localStorage["adminloggedin"] == 'yes'){
+		$("#adminButton").show();
+	}
+	else {
+		$("#adminButton").hide();
 	}
 	
 	//Search Button Clicked
@@ -94,10 +105,17 @@ $("document").ready(function(){
 					//Success, Set Session variables
 					//printSuccess('Login Successful!','');
 					localStorage["loggedin"] = 'yes';
+					localStorage["adminloggedin"] = 'yes';
 					localStorage["email"] = email;
 					$("#navbar-signedout").hide();
-					location.reload();
+					window.location.href='index.html';
 				} 
+				else if(r == 0) {
+					localStorage["loggedin"] = 'yes';
+					localStorage["email"] = email;
+					$("#navbar-signedout").hide();
+					window.location.href='index.html';
+				}
 				else {
 					//Fail, print failure
 					printCritical('Username or password is incorrect','');
