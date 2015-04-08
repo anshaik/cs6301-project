@@ -34,8 +34,6 @@ $("document").ready(function(){
 				if(r === '1'){
 					//Success
 					printSuccess('Password Changed Successfully','');
-					localStorage.clear();
-					window.location.href='index.html';
 				} else {
 					//Nothing came back or Failure
 					printCritical('Password was not able to be changed','');
