@@ -18,7 +18,7 @@ function displaySignedIn(){
 	dropDownTitle = email;
 	dropDownEndMeta = "<span class=\"caret\"></span></button>";
 	dropDownMenu = "<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu1\">";
-	dropDownItem1 = "<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">Account Details</a></li>";
+	dropDownItem1 = "<li role=\"presentation\"><a id=\"changepassword\" role=\"menuitem\" tabindex=\"-1\" href=\"#\">Change Password</a></li>";
 	dropDownItem2 = "<li role=\"presentation\"><a id=\"signedindropdown\" role=\"menuitem\" tabindex=\"-1\" href=\"#\">Sign Out</a></li>";
 	dropDownEndMenu = "</ul>";
 	signedInDropDown = "<div class=\"dropdown\">"+dropDownMeta+dropDownTitle+dropDownEndMeta+dropDownMenu+dropDownItem1+dropDownItem2+dropDownEndMenu+"</div>"; 
