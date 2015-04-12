@@ -46,12 +46,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`purchase_history` (
   `seat` VARCHAR(45) NOT NULL,
   `price` INT(11) NOT NULL,
   `date` DATE NOT NULL,
-  `show` VARCHAR(45) NOT NULL,
+  `show` VARCHAR(45) NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_email`, `fnumber`),
   CONSTRAINT `fk_purchase_history_user`
     FOREIGN KEY (`user_email`)
     REFERENCES `mydb`.`user` (`email`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
