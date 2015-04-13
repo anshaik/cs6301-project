@@ -77,14 +77,7 @@ $("document").ready(function(){
 				$("#purchasedetails > tbody:last").append(row);
 			});
 			
-			new Morris.Line({
-				element: 'morris-area-chart',
-				data : jQuery.parseJSON(r),
-				xkey: ['date'],
-				ykeys: ['price'],
-				labels : ['Value'],
-				xLabels: ['date']
-			});
+			
 			
 		} else {
 			//Failure
@@ -103,6 +96,15 @@ $("document").ready(function(){
 				ykeys: ['price'],
 				labels: ['Value'],
 				resize: true
+			});
+			
+			new Morris.Line({
+				element: 'morris-area-chart',
+				data : jQuery.parseJSON(r),
+				xkey: ['date'],
+				ykeys: ['price'],
+				labels : ['Value'],
+				xLabels: ['date']
 			});
 		} else {
 			//Failure
