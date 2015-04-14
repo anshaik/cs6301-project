@@ -17,3 +17,25 @@ body {
 .row {
 	margin-left: 20px;
 }
+
+td, th {
+	padding: 7px; border:#4e95f4 1px solid;
+}
+
+tr { 
+	background: #b8d1f3;
+}
+
+th {
+	background: #337ab7;
+	background-image: linear-gradient(to bottom, #337ab7 0px, #265a88 100%);
+	color: white;
+}
+
+tr:nth-child(odd) {
+	background: #b8d1f3;
+}
+
+tr:nth-child(even) {
+	background: #dae5f4;
+}
