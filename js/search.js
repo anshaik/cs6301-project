@@ -72,6 +72,7 @@ function searchFlights($origin,$destination,$date,$returndate,$token){
 	}
 	getToken().done(function(r){
 		access_token = r['access_token'];
+		localStorage["search"] = '';
 		callAPI(query,access_token).done(function(r){
 			//console.log(r['PricedItineraries']);
 			var count = 0;
@@ -93,7 +94,7 @@ function searchFlights($origin,$destination,$date,$returndate,$token){
 				count = count + 1;
 			});
 			console.log(masterJSONObj);
-			localStorage["search"] = masterJSONObj;
+			localStorage["search"] = JSON.stringify(masterJSONObj);
 			window.location.href = "searchresults.html"
 		});
 	});
