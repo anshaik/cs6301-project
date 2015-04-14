@@ -32,12 +32,12 @@ function getToken(){
 	//aU0wUmU1Unc=
 	
 	return $.ajax({
-		url: "https://api.sabre.com/v1/auth/token",
+		url: "https://api.test.sabre.com/v1/auth/token",
 		type: "POST",
 		'dataType' : "json",
 		'data' : "grant_type=client_credentials",
 		'Content-type' : "application/x-www-form-urlencoded",
-		'headers' : {'Authorization':'Basic '+encodedClientKey+":"+encodedClientSecret},
+		'headers' : {'Authorization':'Basic '+encodedClientKey},
 		success: function(msg){
 			console.log("POST request successful" + msg);
 		},
