@@ -1,5 +1,5 @@
 function checkOut($fnumber,$email,$seat,$price){
-		console.log(fnumber);
+		//console.log(fnumber);
 		return $.ajax({
 			url: "php/addflight.php",
 			type: "POST",
@@ -100,7 +100,9 @@ $("document").ready(function(){
 		console.log(localStorage["cart"]);
 		jObj = $.parseJSON(localStorage["cart"]);
 		$.each(jObj,function(index,element){
+			console.log(index);
 			fnumber = element.flightnumber;
+			//console.log(fnumber);
 			email = localStorage["email"];
 			price = element.price;
 			seat = 0;
@@ -116,6 +118,7 @@ $("document").ready(function(){
 		});
 		
 	});
+	
 	
 	if(localStorage["cartitemremoved"] === 'yes'){
 		printSuccess('Item successfully removed!','');

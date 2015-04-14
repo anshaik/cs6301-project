@@ -15,7 +15,7 @@
 	$sql = "INSERT INTO purchase_history VALUE ('0',$fnumber, '$email', '$seat', $price, CURRENT_TIMESTAMP, '1')";
 	$result = $conn->query($sql);
 
-	if(!$conn->query($sql))
+	if(!$result)
 	{
 		echo "Error".mysqli_error($conn);
 	}
