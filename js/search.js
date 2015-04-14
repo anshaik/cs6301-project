@@ -121,4 +121,5 @@ $("document").ready(function(){
 		console.log("Advanced Search was clicked!");
 		window.location.href = "advancedsearch.html";
 	});
+
 });
