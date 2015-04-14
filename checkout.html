@@ -17,6 +17,7 @@
 	<script src="js/signin.js"></script>
 	<script src="js/signout.js"></script>
 	<script src="js/changepassword.js"></script>
+	<script src="js/checkout.js"></script>
 	<script src="js/jquery-cookie-master/src/jquery.cookie.js"></script>
 	
 	
@@ -68,15 +69,22 @@
 	
 	<div class="page-wrapper">
 		<div class="row">
+			<div class="alert-area">
+			</div>
 			<div class="col-lg-12 col-md-offset-2">
 				<h1 class="page-header">Cart</h1>
+				
 			</div>
+			
 		</div>
 		
 		<div class="row">
 			<div>
+				
 				<div class="col-lg-8 col-md-offset-2">
-					<div  id="carttable" class="panel panel-default">
+					
+					<div id="carttable">
+					
 						<!--
 						<div class="panel-heading">
 							Flight Number: #9898
@@ -92,9 +100,10 @@
 						</div>
 						--->
 						
-					</div>
-					<button class="btn btn-success pull-right">Check Out</button>
+					
+					
 				</div>
+				<button id="checkout" class="btn btn-success pull-right">Check Out</button>
 			</div>
 		</div>
 	</div>

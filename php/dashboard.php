@@ -14,13 +14,13 @@
 	$output = "";
 
 	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-		if($row[show] == 1)
+		if($row['show'] == 1)
 		{
 			$output = $output."<tr>";
-			$output = $output."<td>".$row[fnumber]."</td>";
-			$output = $output."<td>".$row[seat]."</td>";
-			$output = $output."<td>".$row[price]."</td>";
-			$output = $output."<td>".$row[date]."</td>";
+			$output = $output."<td>".$row['fnumber']."</td>";
+			$output = $output."<td>".$row['seat']."</td>";
+			$output = $output."<td>".$row['price']."</td>";
+			$output = $output."<td>".$row['date']."</td>";
 			$output = $output."</tr>";
 		}
 	}

@@ -22,7 +22,7 @@ $("document").ready(function(){
 		//Create Button and Flight Number
 		
 		flightnumber = "<h2>Flight #: " + element.flightnumber + "</h2>";
-		button = "<button class=\"btn btn-success\"><h2>Add to Cart</h2></button>";
+		button = "<button id=\"" + index +  "\" class=\"btn btn-success\"><h2>Add to Cart</h2></button>";
 		divRight = "<div class=\"col-xs-12 col-sm-12 col-md-3\">" + flightnumber + button + "</div>";
 		//Finish creating article div
 		article = "<article class=\"jumbotron search-result row\">" + divLeft + divMidLeft + divMidRight + divRight +  "</article>";
@@ -31,7 +31,29 @@ $("document").ready(function(){
 	});
 	
 	$("#searchresults").on("click",".btn-success",function(){
-		console.log("button pressed!");
+		console.log($(this).attr("id"));
+		var jObj = $.parseJSON(localStorage["search"])[$(this).attr("id")];
+		console.log(jObj);
+		if(localStorage["cart"]){
+			//Something else is in the cart
+			var mObj = $.parseJSON(localStorage["cart"]);
+			var len = Object.keys(mObj).length;
+			mObj[len] = jObj;
+			localStorage["cart"] = JSON.stringify(mObj);
+		} else {
+			//Nothing is in the cart
+			var mObj = {};
+			mObj[0] = jObj;
+			localStorage["cart"] = JSON.stringify(mObj);
+		}
+		localStorage["successfullyaddedtocart"] = "yes";
+		window.location.href = "searchresults.html";
 	});
+	
+	if(localStorage["successfullyaddedtocart"] === "yes"){
+		printSuccess('Successfully added to Cart!','');
+		localStorage["successfullyaddedtocart"] = "";
+	}
+	
 	
 });

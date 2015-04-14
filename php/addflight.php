@@ -7,19 +7,20 @@
 	}
 	
 	//Acquire username from post request
-	$fnumber = $conn->real_escape_string($_POST['fnumber'])
+
+	$fnumber = $conn->real_escape_string($_POST['fnumber']);
 	$email = $conn->real_escape_string($_POST['email']);
-	$seat = $conn->real_escape_string($_POST['seat'])
+	$seat = $conn->real_escape_string($_POST['seat']);
 	$price = $conn->real_escape_string($_POST['price']);
-	$sql = "insert into purchase_history values ($fnumber, '$email', '$seat', $price, CURRENT_TIMESTAMP, '0');";
+	$sql = "INSERT INTO purchase_history VALUE ('0',$fnumber, '$email', '$seat', $price, CURRENT_TIMESTAMP, '1')";
 	$result = $conn->query($sql);
 
-	if($result)
+	if(!$conn->query($sql))
 	{
-		echo "Success";
+		echo "Error".mysqli_error($conn);
 	}
 	else
 	{
-		echo "Error";
+		echo "Success";
 	}
 ?>

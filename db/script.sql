@@ -41,13 +41,14 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `mydb`.`purchase_history` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`purchase_history` (
+  `index` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `fnumber` INT(11) NOT NULL,
   `user_email` VARCHAR(45) NOT NULL,
   `seat` VARCHAR(45) NOT NULL,
-  `price` INT(11) NOT NULL,
+  `price` DOUBLE NOT NULL,
   `date` DATE NOT NULL,
   `show` VARCHAR(45) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`user_email`, `fnumber`),
+  PRIMARY KEY (`index`,`user_email`, `fnumber`),
   CONSTRAINT `fk_purchase_history_user`
     FOREIGN KEY (`user_email`)
     REFERENCES `mydb`.`user` (`email`)
