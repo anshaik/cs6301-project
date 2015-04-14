@@ -12,30 +12,47 @@ function callAPI($query){
 	});
 }
 function getToken(){
-	/*
+	
+	clientId = "V1:az6s6qn4c2eujds3:DEVCENTER:EXT";
+	clientSecret = "iM0Re5Rw";
+	
+	encodedClientId = btoa(clientId);
+	encodedClientSecret = btoa(clientSecret);
+	
+	clientKey = encodedClientId+":"+encodedClientSecret;
+	
+	encodedClientKey = btoa(clientKey);
+	
+	authObj = "Basic "+encodedClientKey+":"+encodedClientSecret;
+	console.log(encodedClientId);
+	console.log(encodedClientSecret);
+	console.log(encodedClientKey);
+	
+	//VjE6YXo2czZxbjRjMmV1amRzMzpERVZDRU5URVI6RVhU
+	//aU0wUmU1Unc=
+	
 	return $.ajax({
-		type: "POST",
 		url: "https://api.sabre.com/v1/auth/token",
-		dataType: "jsonp",
-		data :"grant-type=client_credentials",
-		beforeSend : function(xhr){
-			xhr.setRequestHeader("Authorization: Basic","VmpFNllYbzJjelp4YmpSak1tVjFhbVJ6TXpwRVJWWkRSVTVVUlZJNlJWaFVJQT09OmFVMHdVbVUxVW5jZw==");
-			xhr.setRequestHeader("Content-type:","application/x-www-form-urlencoded");
-			//console.log("Post request is sending");
-		},
+		type: "POST",
+		'dataType' : "json",
+		'data' : "grant_type=client_credentials",
+		'Content-type' : "application/x-www-form-urlencoded",
+		'headers' : {'Authorization':'Basic '+encodedClientKey+":"+encodedClientSecret},
 		success: function(msg){
 			console.log("POST request successful" + msg);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown){
-			console.log("POST request failed:" + "Status:" + textStatus + "\nError:"+errorThrown);
+			console.log("POST request failed:" + "\nStatus:" + textStatus + "\n"+errorThrown);
 		}
 	});
-	*/
+	
+	/*
 	return $.ajax({
 		type: "POST",
 		url: "php/token.php",
 		dataType : "text"
 	});
+	*/
 }
 function searchFlights($origin,$destination,$date,$returndate,$token){
 	console.log("Search Flights called!");

@@ -3,7 +3,7 @@ function createUser($email,$password,$firstname,$lastname){
 	//Ajax call to create User
 	return $.ajax({
 		url: "php/signup.php",
-		dataTYpe: "text",
+		dataType: "text",
 		type: "POST",
 		data: {
 			email : $('#Email').val(),
