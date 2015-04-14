@@ -7,7 +7,17 @@
 	//2 - Base64 Client Secret
 	//3 - Concat both Base64 values with a :
 	//4 - Base64 the concatenation.
-	$dsAppKey = "VmpFNllYbzJjelp4YmpSak1tVjFhbVJ6TXpwRVJWWkRSVTVVUlZJNlJWaFU6YVUwd1VtVTFVbmM9";
+
+	$clientId = "V1:az6s6qn4c2eujds3:DEVCENTER:EXT";
+	$clientSecret = "iM0Re5Rw";
+
+	$encodedClientId = base64_encode($clientId);
+	$encodedClientSecret = base64_encode($clientSecret);
+
+	$encodedClientIdSecret = $encodedClientId . ":" . $encodedClientSecret;
+
+	//$dsAppKey = "VmpFNllYbzJjelp4YmpSak1tVjFhbVJ6TXpwRVJWWkRSVTVVUlZJNlJWaFU6YVUwd1VtVTFVbmM9";
+	$dsAppKey = base64_encode($encodedClientSecret);
 	$lastToken = null;
 	$expireAt = null;
 	$lastInfo = null;
@@ -30,7 +40,5 @@
 	//parse token result
 	$js = json_decode($retVal,true);
 	var_dump($js);
-
-	
 	
 ?>
