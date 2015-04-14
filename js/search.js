@@ -8,7 +8,6 @@ function callAPI($query){
 		beforeSend : function(xhr){
 			xhr.setRequestHeader("Authorization", "Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/ACPCRTC!ICESMSLB\/CRT.LB!-3546439060654835965!272138!0!!E2E-1");
 			xhr.setRequestHeader("X-Originating-Ip","129.110.241.140");
-			
 		}
 	});
 }
@@ -35,7 +34,7 @@ function getToken(){
 	return $.ajax({
 		type: "POST",
 		url: "php/token.php",
-		dataType : "text",
+		dataType : "text"
 	});
 }
 function searchFlights($origin,$destination,$date,$returndate,$token){
@@ -53,9 +52,12 @@ function searchFlights($origin,$destination,$date,$returndate,$token){
 	if(returndate){
 		query = query + "&returndate="+returndate;
 	}
-	callAPI(query).done(function(r){
+	getToken().done(function(r){
 		console.log(r);
 	});
+	//callAPI(query).done(function(r){
+		//console.log(r);
+	//});
 }
 $("document").ready(function(){
 	//Search button was clicked
