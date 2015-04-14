@@ -1,16 +1,17 @@
 //Login 
-function get_purchase_history($email,$password){
+function get_purchase_history($email){
 	//Ajax call to query to Login
 	return $.ajax({
 		url: "php/dashboard.php",
 		dataType: "text",
 		type: "POST",
 		data: {
-			email : email,
-			password : password
+			email : email
 		}
 	});
 }
+
+/*
 //Output the dropdownbar for the Signed in Users
 function displaySignedIn(){
 	email = localStorage["email"];
@@ -37,7 +38,7 @@ $("document").ready(function(){
 		$("#adminButton").hide();
 		$("#dashboardButton").hide();
 		$("#registerButton").show();
-		$("#navbar-signedin").empty();
+		$("#navbar-signedin").empty();	
 		$("#navbar-signedout").show();
 	}
 	
@@ -50,14 +51,12 @@ $("document").ready(function(){
 
 	//Cleanup
 	clearErrors();
-	
+	*/
+$("document").ready(function(){
 	//Check if already Logged in
 	if(localStorage['loggedin'] == 'yes'){
 		email = localStorage['email'];
-		/* needs session variable */
-		password = "";
-		//Login
-		get_purchase_history(email,password).done(function(r){
+		get_purchase_history(email).done(function(r){
 			$('#purchase_history table').append(r);
 		});
 	
