@@ -70,7 +70,19 @@ function searchFlights($origin,$destination,$date,$returndate,$token){
 	getToken().done(function(r){
 		access_token = r['access_token'];
 		callAPI(query,access_token).done(function(r){
-			console.log(r);
+			console.log(r['PricedItineraries']);
+			$.each(r['PricedItineraries'],function(index,value){
+				//Flight Number Path
+				flightnumber = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].FlightNumber;
+				what = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code;
+				time = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime;
+				rtime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime;
+				console.log(flightnumber);
+				console.log(what);
+				console.log(time);
+				console.log(rtime);
+				console.log(origin+ ":" + destination + ":"+date+":"+returndate+":"+value.AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount+":"+flightnumber);
+			});
 		});
 	});
 	
