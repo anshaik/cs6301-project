@@ -122,5 +122,9 @@ $("document").ready(function(){
 		localStorage['cartitemremoved'] = '';
 	}
 	
+	if(!localStorage["cart"]){
+		printCritical("You have no items in the Cart!",'');
+	}
+	
 	
 });

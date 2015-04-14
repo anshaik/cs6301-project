@@ -30,6 +30,9 @@
 	<script src="js/changepassword.js"></script>
 	<script src="js/dashboard.js"></script>
 	<script src="js/jquery-cookie-master/src/jquery.cookie.js"></script>
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </head>
 <body>
 	<!-- Fixed navbar -->
@@ -73,18 +76,37 @@
 	</nav>
 	<div class="alert-area">
 	</div>
-<h2>Your Purchase History</h2>
-<div id="purchase_history">
-<table>
-<tr>
-<th>Flight Number</th>
-<th>Seat</th>
-<th>Price</th>
-<th>Purchased On</th>
-</tr>
-
-
-</table>
+<div class="page-wrapper">
+	<div class="col-lg-12">
+		<h1 class="page-header">Your Purchase History</h1>
+	</div>
+	<div class="row"> 
+		<div class="col-lg-8 col-md-offset-2">
+			<div>
+				<table class="table">
+					<thead>
+					<tr>
+						<th>Flight Number</th>
+						<th>Seat</th>
+						<th>Price</th>
+						<th>Purchased On</th>
+					</tr>
+					</thead>
+					<tbody id="purchase_history">
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-8 col-md-offset-2">
+			<div id="morris-area-chart">
+				<!--Need area-chart creator -->
+			</div>
+		</div>
+		
+	</div>
 </div>
 	
 </body>

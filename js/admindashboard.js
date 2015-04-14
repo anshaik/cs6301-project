@@ -110,7 +110,7 @@ $("document").ready(function(){
 			//Failure
 			console.log("Failed to get Average Purchase Information");
 		}
-	})
+	});
 	
 	$("#userdetails > tbody").on("click",".btn-danger",function(){
 		console.log($(this).attr("id"));

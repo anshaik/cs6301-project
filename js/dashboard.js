@@ -11,6 +11,7 @@ function get_purchase_history($email){
 	});
 }
 
+
 $("document").ready(function(){
 	//Check if already Logged in
  	if(localStorage['loggedin'] == 'yes'){
@@ -21,12 +22,13 @@ $("document").ready(function(){
 		get_purchase_history(email).done(function(r){
 			console.log(r);
 			if(r){
-				$('#purchase_history table').append(r);
+				$('#purchase_history').append(r);
 			} else {
-				$('#purchase_history table').hide();
+				$('#purchase_history').hide();
 				printCritical("You haven't made any purchases yet!",'');
 			}
 		});
 	}
+	
 	
 });
