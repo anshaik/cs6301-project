@@ -41,6 +41,9 @@ function getToken(){
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown){
 			console.log("POST request failed:" + "\nStatus:" + textStatus + "\n"+errorThrown);
+			console.log(errorThrown);
+			console.log(XMLHttpRequest);
+			console.log(textStatus);
 		}
 	});
 	
@@ -70,19 +73,28 @@ function searchFlights($origin,$destination,$date,$returndate,$token){
 	getToken().done(function(r){
 		access_token = r['access_token'];
 		callAPI(query,access_token).done(function(r){
-			console.log(r['PricedItineraries']);
+			//console.log(r['PricedItineraries']);
+			var count = 0;
+			var masterJSONObj = {};
 			$.each(r['PricedItineraries'],function(index,value){
 				//Flight Number Path
 				flightnumber = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].FlightNumber;
-				what = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code;
-				time = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime;
-				rtime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime;
-				console.log(flightnumber);
-				console.log(what);
-				console.log(time);
-				console.log(rtime);
-				console.log(origin+ ":" + destination + ":"+date+":"+returndate+":"+value.AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount+":"+flightnumber);
+				carriercode = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code;
+				origindeparturetime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime;
+				destinationdeparturetime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime;
+				price = value.AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount
+				//console.log(flightnumber);
+				//console.log(what);
+				//console.log(time);
+				//console.log(rtime);
+				//console.log(origin+ ":" + destination + ":"+date+":"+returndate+":"+value.AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount+":"+flightnumber);
+				var JSONObj = {"flightnumber" : flightnumber, "carriercode" : carriercode, "origindepaturetime" : origindeparturetime, "destinationdeparturetime" : destinationdeparturetime, "origin" : origin, "destination" : destination, "date" : date, "returndate" : returndate, "price" : price};
+				masterJSONObj[count] = JSONObj;
+				count = count + 1;
 			});
+			console.log(masterJSONObj);
+			localStorage["search"] = masterJSONObj;
+			window.location.href = "searchresults.html"
 		});
 	});
 	
@@ -91,6 +103,7 @@ $("document").ready(function(){
 	//Search button was clicked
 	$("#search").click(function(){
 		//Debug statement
+		localStorage["search"] = '';
 		console.log("Search was clicked!");
 		origin = $("#origin").val();
 		destination = $("#destination").val();
