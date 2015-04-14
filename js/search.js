@@ -1,14 +1,12 @@
-function callAPI($query){
+function callAPI($query,$access_token){
 	//Ajax call to query to Sabre API
+	console.log(access_token);
 	return $.ajax({
 		type: "GET",
 		url: query,
-		crossDomain: true,
 		dataType: "json",
-		beforeSend : function(xhr){
-			xhr.setRequestHeader("Authorization", "Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/ACPCRTC!ICESMSLB\/CRT.LB!-3546439060654835965!272138!0!!E2E-1");
-			xhr.setRequestHeader("X-Originating-Ip","129.110.241.140");
-		}
+		'Content-type' : "application/x-www-form-urlencoded",
+		'headers' : {'Authorization':'Bearer '+access_token}
 	});
 }
 function getToken(){
@@ -56,7 +54,7 @@ function getToken(){
 }
 function searchFlights($origin,$destination,$date,$returndate,$token){
 	console.log("Search Flights called!");
-	query = "https://api.sabre.com/v1/shop/flights?";
+	query = "https://api.test.sabre.com/v1/shop/flights?";
 	if(origin){
 		query = query + "origin="+origin;
 	}
@@ -70,11 +68,12 @@ function searchFlights($origin,$destination,$date,$returndate,$token){
 		query = query + "&returndate="+returndate;
 	}
 	getToken().done(function(r){
-		console.log(r);
+		access_token = r['access_token'];
+		callAPI(query,access_token).done(function(r){
+			console.log(r);
+		});
 	});
-	//callAPI(query).done(function(r){
-		//console.log(r);
-	//});
+	
 }
 $("document").ready(function(){
 	//Search button was clicked
