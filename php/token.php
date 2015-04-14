@@ -17,7 +17,8 @@
 	$encodedClientIdSecret = $encodedClientId . ":" . $encodedClientSecret;
 
 	//$dsAppKey = "VmpFNllYbzJjelp4YmpSak1tVjFhbVJ6TXpwRVJWWkRSVTVVUlZJNlJWaFU6YVUwd1VtVTFVbmM9";
-	$dsAppKey = base64_encode($encodedClientSecret);
+	$dsAppKey = base64_encode($encodedClientIdSecret);
+	
 	$lastToken = null;
 	$expireAt = null;
 	$lastInfo = null;
@@ -29,7 +30,7 @@
 	curl_setopt($ch, CURLOPT_URL, $url . 'v1/auth/token');
 	curl_setopt($ch, CURLOPT_POST, true);
 	//curl_setopt($ch, CURLOPT_HEADER, true);
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/x-www-form-urlencoded','Authorization: Basic ' . $dsAppKey));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/x-www-form-urlencoded;charset=UTF-8','Authorization: Basic ' . $dsAppKey));
 	curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=client_credentials');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$retVal = curl_exec($ch);
