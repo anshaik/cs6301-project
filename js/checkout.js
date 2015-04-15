@@ -97,6 +97,7 @@ $("document").ready(function(){
 	
 	$("#checkout").click(function(){
 		console.log("Check out Clicked!");
+		
 		console.log(localStorage["cart"]);
 		jObj = $.parseJSON(localStorage["cart"]);
 		$.each(jObj,function(index,element){
@@ -113,6 +114,10 @@ $("document").ready(function(){
 					window.location.href = "index.html";
 				} else {
 					console.log("error adding cart");
+					if(!localStorage["loggedin"]){
+						clearErrors();
+					    printCritical("Must be logged in to checkout!",'');
+					}
 				}
 			});
 		});

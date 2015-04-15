@@ -1,12 +1,18 @@
 function callAPI($query,$access_token){
 	//Ajax call to query to Sabre API
 	console.log(access_token);
+	//query = 'https://api.sabre.com/v1/lists/supported/cities?country=USA';
+	//query = 'https://api.test.sabre.com/v1/shop/flights?origin=BHM&destination=HSV';
 	return $.ajax({
 		type: "GET",
 		url: query,
 		dataType: "json",
 		'Content-type' : "application/x-www-form-urlencoded",
-		'headers' : {'Authorization':'Bearer '+access_token}
+		'headers' : {'Authorization':'Bearer '+access_token},
+		error: function(error){
+			clearErrors();
+		    printCritical("No results were found!",'');
+		 },
 	});
 }
 function getToken(){
@@ -74,7 +80,7 @@ function searchFlights($origin,$destination,$date,$returndate,$token){
 		access_token = r['access_token'];
 		localStorage["search"] = '';
 		callAPI(query,access_token).done(function(r){
-			//console.log(r['PricedItineraries']);
+		//	console.log(r['message']);
 			var count = 0;
 			var masterJSONObj = {};
 			$.each(r['PricedItineraries'],function(index,value){

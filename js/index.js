@@ -5,3 +5,11 @@ $("document").ready(function(){
 		localStorage.removeItem("cart");
 	}
 });
+
+function changeOrigin(name) {
+    $("#origin").text(name);
+}
+
+function changeDestination(name) {
+    $("#destination").text(name);
+}
